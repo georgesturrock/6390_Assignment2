@@ -1,3 +1,3 @@
 void drawMeenusMouth() {
-  line(475,545,560,545);
+  line(490,475,580,475);
 }
