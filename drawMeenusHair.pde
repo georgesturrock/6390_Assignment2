@@ -1,0 +1,30 @@
+void drawMeenusHair() {
+  fill(0);
+  beginShape();
+  vertex(320,305);
+  vertex(350,200);
+  vertex(370,180);
+  vertex(500,180);
+  vertex(475,150);
+  vertex(580,170);
+  vertex(660,170);
+  vertex(600,125);
+  vertex(725,150);
+  vertex(640,100);
+  vertex(725,95);
+  vertex(630,75);
+  vertex(780,45);
+  vertex(550,50);
+  vertex(700,20);
+  vertex(460,25);
+  vertex(535,2);
+  vertex(410,10);
+  vertex(275,20);
+  vertex(240,100);
+  vertex(220,325);
+  vertex(250,300);
+  vertex(280,290);
+  vertex(300,305);
+  vertex(320,305);
+  endShape();  
+}
