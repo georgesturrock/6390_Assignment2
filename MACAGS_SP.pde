@@ -4,22 +4,30 @@
 // Meenu Ahluwalia, Cynthia Alvarado, George Sturrock
 //*****************************************************//
 
-PImage bmjG1;
-int faceFrameHeight;
-
 void setup(){
   size(1200,700);
-  background(255);
+  //background(255);
   strokeWeight(5);
-  faceFrameHeight = 168;
-  bmjG1 = loadImage("C:\\Users\\Sturrock\\Documents\\SMU Data Science\\Vizualization\\Assignment2\\bit31.png");
 }
 
 void draw(){
-  //image(bmjG1, 0, 0); 
+  background(255);
   drawCynthia();
   drawMeenu();
   drawGeorge();
+  writeText();
+}
+
+void writeText(){
+  fill(0);
+  quad(50, 550, 240, 550, 240, 640, 50, 640); //left text box
+  quad(430, 550, 600, 550, 600, 640, 430, 640); //middle text box
+  quad(880, 550, 1080, 550, 1080, 640, 880, 640); //right text box
+  fill(255);
+  textSize(24);
+  text("Hear No Evil", 70, 600);
+  text("See No Evil", 450, 600);
+  text("Speak No Evil", 900, 600);
 }
 
 void drawCynthia(){}
@@ -46,67 +54,87 @@ void drawGeorge(){
 }
 
 void drawGeorgeFaceFrame(){
+  int faceFrameHeight;
+  faceFrameHeight = 168;
   fill(255, 203, 153);
   noStroke();
-  triangle(115, faceFrameHeight, 198, 341, 278, faceFrameHeight);
+  triangle(65, faceFrameHeight, 148, 341, 228, faceFrameHeight);
   stroke(0);
-  bezier(116, faceFrameHeight, 114, 300, 147, 332, 198, 341);
-  bezier(198, 341, 240, 332, 286, 300, 277, faceFrameHeight);
-
+  bezier(66, faceFrameHeight, 64, 300, 97, 332, 148, 341);
+  bezier(148, 341, 190, 332, 236, 300, 227, faceFrameHeight);
 }
 
 void drawGeorgeEyes(){
   //eyeballs
   fill(253, 254, 255);
-  ellipse(162, 229, 38, 16);
-  ellipse(230, 229, 38, 16);
+  ellipse(112, 229, 38, 16);
+  ellipse(180, 229, 38, 16);
   
   //iris
+  strokeWeight(2);
   fill(89, 94, 200);
-  ellipse(162, 229, 13, 13);
-  ellipse(230, 229, 13, 13);
+  ellipse(112, 229, 13, 13);
+  ellipse(180, 229, 13, 13);
   
   //pupils
   fill(5, 7, 8);
-  ellipse(162, 229, 4, 4);
-  ellipse(230, 229, 4, 4);
+  ellipse(112, 229, 5, 5);
+  ellipse(180, 229, 5, 5);
   
   //glare on pupil
   fill(253, 254, 255);
-  ellipse(163, 228, 2.5, 2.5);
-  ellipse(231, 228, 2.5, 2.5);
+  ellipse(113, 228, 3, 3);
+  ellipse(181, 228, 3, 3);
+  
+  if (mouseX > 430 && mouseX < 600){
+    if (mouseY > 550 && mouseY < 640){
+      fill(0);
+      quad(82, 215, 135, 215, 135, 243, 82, 243);
+      quad(157, 215, 210, 215, 210, 243, 157, 243);
+      noFill();
+      strokeWeight(3);
+      bezier(135, 220, 146, 216, 146, 216, 157, 220);
+    }
+  }
 }
 
 void drawGeorgeMouth(){
   noFill();
+  strokeWeight(4);
   stroke(0);
-  bezier(173, 296, 196, 302, 199, 302, 220, 296);
+  bezier(123, 296, 146, 302, 149, 302, 170, 296);
+  if (mouseX > 880 && mouseX < 1080){
+    if (mouseY > 550 && mouseY < 640){
+      fill(196, 196, 196);
+      quad(115, 285, 178, 285, 178, 310, 115, 310);
+    }
+  }
 }
 
 void drawGeorgeBrows(){  
   noFill();
   strokeWeight(3);
   stroke(101, 53, 33);
-  bezier(135, 207, 149, 198, 171, 199, 186, 208);
-  bezier(207, 207, 223, 197, 244, 198, 257, 205);
+  bezier(85, 207, 99, 198, 121, 199, 136, 208);
+  bezier(157, 207, 173, 197, 194, 198, 207, 205);
 }
 
 void drawGeorgeHair(){
   stroke(0);
   fill(101, 53, 33);
-  bezier(119, 245, 70, 55, 315, 55, 279, 245);
+  bezier(69, 245, 20, 55, 265, 55, 229, 245);
 }
 
 void drawGeorgeNose(){
   strokeWeight(2);
   stroke(210, 150, 86);
-  line(189, 232, 187, 254);
-  line(202, 231, 205, 254);
+  line(139, 232, 137, 254);
+  line(152, 231, 155, 254);
   //stroke(0);
-  bezier(183, 266, 181, 269, 181, 275, 182, 278);
-  bezier(209, 266, 211, 269, 211, 275, 210, 278);
-  bezier(182, 278, 186, 277, 190, 280, 198, 281);
-  bezier(210, 278, 206, 277, 202, 280, 198, 281);
+  bezier(133, 266, 131, 269, 131, 275, 132, 278);
+  bezier(159, 266, 161, 269, 161, 275, 160, 278);
+  bezier(132, 278, 136, 277, 140, 280, 148, 281);
+  bezier(160, 278, 156, 277, 152, 280, 148, 281);
 }
 
 void drawGeorgeHairAccents(){
@@ -121,11 +149,11 @@ void drawGeorgeHairAccents(){
   fill(101, 53, 33);
   stroke(0);
   strokeWeight(4);
-  bezier(260, 150, 216, 200, 157, 180, 116, 168);
-  bezier(245, 168, 253, 170, 258, 180, 274, 168);
+  bezier(210, 150, 166, 200, 107, 180, 66, 168);
+  bezier(195, 168, 203, 170, 208, 180, 224, 168);
   stroke(78, 28, 9);
   for (int b=0; b < 5; b=b+1){
-    haX1 = random(150, 247);
+    haX1 = random(100, 197);
     haY1 = random(120, 160);
     haX2 = haX1 - 5;
     haY2 = haY1 + 5;
@@ -139,6 +167,15 @@ void drawGeorgeHairAccents(){
 
 void drawGeorgeEars(){
   fill(255, 203, 153);
-  bezier(282, 217, 295, 230, 279, 268, 270, 274);
-  bezier(109, 217, 101, 226, 113, 268, 125, 274);
+  bezier(232, 217, 245, 230, 229, 268, 220, 274);
+  bezier(59, 217, 51, 226, 63, 268, 75, 274);
+  if (mouseX > 50 && mouseX < 240){
+    if (mouseY > 550 && mouseY < 640){
+      fill(89, 94, 200);
+      quad(50, 216, 76, 216, 76, 275, 50, 275);
+      quad(219, 216, 246, 216, 246, 275, 219, 275);
+      noFill();
+      bezier(50, 216, 15, 50, 270, 50, 246, 216);
+    }
+  }
 }
