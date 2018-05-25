@@ -17,4 +17,15 @@ void drawMeenusHead() {
   vertex(450,510);
   vertex(500,510);
   endShape();
+  
+  if (mouseX > 50 && mouseX < 240){
+    if (mouseY > 550 && mouseY < 640){
+      fill(89, 94, 200);
+      quad(280, 235, 315, 235, 350, 360, 280, 360);
+      quad(670, 235, 690, 240, 690, 365, 670, 360);
+      noFill();
+      bezier(280, 235,  220, 15, 710, 15,690, 235);
+    }
+  }
+
 }

@@ -30,7 +30,168 @@ void writeText(){
   text("Speak No Evil", 900, 600);
 }
 
-void drawCynthia(){}
+void drawCynthia(){
+int faceTopLeft;
+int faceTopLeftHeight;
+
+faceTopLeft = 850;
+faceTopLeftHeight = 50;
+/* Skin Colour */
+fill(220, 180, 160);
+noStroke();
+/* Face */
+beginShape();
+curveVertex(faceTopLeft,  faceTopLeftHeight);
+curveVertex(faceTopLeft,  faceTopLeftHeight);
+curveVertex(faceTopLeft-20,  faceTopLeftHeight+110);
+curveVertex(faceTopLeft+40,  faceTopLeftHeight+275);
+curveVertex(faceTopLeft+150, faceTopLeftHeight+275);
+curveVertex(faceTopLeft+215, faceTopLeftHeight+110);
+curveVertex(faceTopLeft+200, faceTopLeftHeight);
+curveVertex(faceTopLeft+200, faceTopLeftHeight);
+endShape();
+
+
+
+/* Eyes */
+/*Left Eye*/
+int leftEyeW;
+int EyeH;
+int rightEyeW;
+
+leftEyeW = faceTopLeft + 50;
+EyeH = faceTopLeftHeight + 100;
+rightEyeW = leftEyeW + 80;
+
+ellipseMode(RADIUS);
+fill(255);
+ellipse(leftEyeW, EyeH, 30, 16);
+
+ellipseMode(CENTER);
+fill(90, 70, 60);
+ellipse(leftEyeW, EyeH, 15, 15);
+
+/*Right Eye*/
+ellipseMode(RADIUS);
+fill(255);
+ellipse(rightEyeW, EyeH, 30, 16);
+
+ellipseMode(CENTER);
+fill(90, 70, 60);
+ellipse(rightEyeW, EyeH, 15, 15);
+
+/*Brows*/
+  noFill();
+  strokeWeight(3);
+  stroke(101, 53, 33);
+  bezier(870, 130, 885, 120, 910, 120, 925, 130);
+  bezier(950, 130, 975, 120, 990, 120, 1010, 130);
+
+/* NOSE */
+int noseLeftBorder;
+int noseRightBorder;
+int noseTop;
+int noseBottom;
+
+noseLeftBorder = leftEyeW + 20;
+noseRightBorder = leftEyeW + 65;
+noseTop = 235;
+noseBottom = noseTop + 10;
+
+noStroke();
+fill(215, 165, 145);
+beginShape();
+curveVertex(noseLeftBorder,noseTop);
+curveVertex(noseLeftBorder,noseTop);
+curveVertex(940,noseBottom);
+curveVertex(noseRightBorder,noseTop);
+curveVertex(noseRightBorder,noseTop);
+endShape();
+stroke (215, 165, 145);
+line(leftEyeW + 30, EyeH + 20, leftEyeW + 20, noseTop - 10);
+
+/* MOUTH */
+
+int mBL;
+int mH;
+int mBR;
+
+mBL = leftEyeW;
+mH = noseTop + 40;
+mBR = leftEyeW + 80;
+
+fill(195, 125, 115);
+beginShape();
+curveVertex(mBL, mH);
+curveVertex(mBL, mH);
+curveVertex(mBL + 40, mH + 15);
+curveVertex(mBR, mH);
+curveVertex(mBR, mH);
+endShape();
+
+beginShape();
+curveVertex(mBL, mH);
+curveVertex(mBL, mH);
+curveVertex(mBL + 40, mH-5);
+curveVertex(mBR, mH);
+curveVertex(mBR, mH);
+endShape();
+
+//int hairLeftW;
+//int hairLeftH;
+
+fill(101, 53, 33);
+beginShape();
+vertex(975, faceTopLeftHeight + 10);
+vertex(860, 80);
+vertex(820, 280);
+vertex(818, 100);
+vertex(815, 120);
+vertex(825, 40);
+vertex(900, 20);
+vertex(980, 40);
+vertex(1050, 35);
+vertex(1075, 150);
+vertex(1050, 250);
+vertex(1020, 100);
+vertex(975, 60);
+endShape();
+
+//Cynthia Hear no evil
+stroke(0);
+strokeWeight(4);
+if (mouseX > 50 && mouseX < 240){
+  if (mouseY > 550 && mouseY < 640){
+    fill(90, 70, 60);
+    quad(810, 125, 840, 125, 840, 205, 810, 205);
+    quad(1050, 125, 1080, 125, 1080, 205, 1050, 205);
+    noFill();
+    line(810, 125, 810, 15);
+    line(810, 15, 1080, 15);
+    line(1080,15, 1080, 125);
+    ellipse(810, 15, 5, 5);
+    ellipse(1080, 15, 5, 5);
+  }
+}
+
+//Cynthia See No Evil
+if (mouseX > 430 && mouseX < 600){
+  if (mouseY > 550 && mouseY < 640){
+    fill(0);
+    ellipse(leftEyeW, EyeH, 77, 40);
+    ellipse(rightEyeW, EyeH, 77, 40);
+  }
+}
+
+//Cynthia Speak No Evil
+if (mouseX > 880 && mouseX < 1080){
+  if (mouseY > 550 && mouseY < 640){
+    fill(196, 196, 196);
+    quad(900, 255, 980, 255, 980, 310, 900, 310);
+  }
+}
+
+}
 
 void drawMeenu(){
   //color of the skin 
@@ -42,6 +203,7 @@ void drawMeenu(){
   drawMeenusMouth();
 }
 
+//***** Draw Geoge *****//
 void drawGeorge(){
   drawGeorgeHair();
   drawGeorgeFaceFrame();

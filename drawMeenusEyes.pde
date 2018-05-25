@@ -43,4 +43,17 @@ void drawMeenusEyes() {
   fill(0);
   ellipse(457,290,20,20);
 
+  if (mouseX > 430 && mouseX < 600){
+    if (mouseY > 550 && mouseY < 640){
+      fill(0);
+      quad(400, 265, 500, 265, 500, 315, 400, 315);
+      quad(535, 265, 640, 265, 640, 315, 535, 315);
+      noFill();
+      strokeWeight(3);
+      stroke(0);
+      bezier(500, 280, 520, 275, 520, 275, 535, 280);
+  
+    }
+  }
+
 }
